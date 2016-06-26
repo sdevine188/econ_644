@@ -2,6 +2,7 @@ library(RConics)
 
 # http://faculty.cas.usf.edu/mbrannick/regression/regma.htm
 # http://www.statmethods.net/advstats/matrix.html
+# https://onlinecourses.science.psu.edu/stat501/node/382
 
 # create data
 y <- c(1, 2, 3, 3, 4)
@@ -15,6 +16,15 @@ y_mat <- as.matrix(data.frame(y = y))
 
 # create x matrix
 x_mat <- as.matrix(data.frame(x = x0, x1, x2))
+
+# schaums outline of econmetrics has derivation of equation for B
+# goal is to find values of B that minimize SSE, in matrix form to accomodate multiple B: (Y - BX)(Y - BX)
+# take derivative w respect to B and set equal to 0
+# d/dB = Y^2 - YBX - YBX + (BX)^2; = Y^2 - 2YBX + B^2X^2
+# d/dB = -2YX + 2BX^2
+# 0 = -2YX + 2BX^2
+# 2YX = 2BX; YX = BX^2; YX / X^2 = B; or in matrix notation YX * (X'X)^-1 = B 
+
 
 # find X'Y
 xy <- t(x_mat) %*% y_mat
