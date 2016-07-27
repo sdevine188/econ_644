@@ -145,7 +145,7 @@ Hence, educ and urban jointly belong to this regression model.
 **************************************
 test urban=0
 
-return list
+ereturn list
 scalar fstat = r(F)
 
 scalar crit = invFtail(1,932,0.01)
